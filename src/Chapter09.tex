@@ -1,0 +1,298 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169]{beamer}
+% use 16:9 in new slides!
+
+\usepackage{tikz}
+\usepackage{array}
+
+\usepackage[skins]{tcolorbox}
+
+\def\blankline{\\[6pt]}
+\def\bpr#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=green!55!blue!20!white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=blue!50, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bdef#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=green!50!yellow!60!gray, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bthe#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!52, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\tcb#1{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
+#1
+\end{tcolorbox}
+}
+
+
+
+\definecolor{UMBlue}{RGB}{5,32,103}
+\definecolor{UMYellow}{RGB}{255,216,0}
+%\usetheme{Madrid}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \begin{minipage}{0.75\paperwidth}
+  \vspace{1.2ex}\hspace{-0.245\paperwidth}
+  \resizebox{\paperwidth}{3ex}{
+    \tikz{
+      \fill [color=UMBlue] (0,0) rectangle (10, 0.13);
+      \fill [color=UMYellow] (0,-0.1) rectangle (10, -0.18);
+    }
+  }
+  \begin{beamercolorbox}[wd=\linewidth,ht=2.5ex,dp=1.125ex]{section}
+    \insertsubsectionnavigationhorizontal{\linewidth}{}{Slide \insertpagenumber}
+  \end{beamercolorbox}
+  \end{minipage}
+  \begin{minipage}{0.23\paperwidth}
+  \hspace{0.2em}
+  \includegraphics[width=\linewidth]{assets/logo.png}
+  \end{minipage}
+}
+
+\setbeamercolor{title}{fg=UMBlue}
+\setbeamercolor{frametitle}{fg=UMBlue}
+\setbeamercolor{structure}{fg=UMBlue}
+
+\title[Course number]{VC210 Physical Equilibrium} 
+\author[]{Sun Qizhen}
+\institute[UMJI-SJTU]
+{
+	University of Michigan - Shanghai Jiaotong University
+	\\\medskip
+	Joint Institute
+}
+%----------------------------------------------------------------------------------------
+%	Highlight the title of the current section
+%----------------------------------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+
+\begin{document}
+% insert title page---------------------------
+\maketitle
+%insert contents------------------------------
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Phase Transition}
+\begin{frame}
+  \frametitle{Phase Transition}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{assets/phase_change.png}
+  \end{figure}
+  Remember it or copy it to your cheating paper!
+\end{frame}
+\begin{frame}
+  \frametitle{Vapor Pressure}
+  Origin of Vapor Pressure: At a fixed temperature, as long as some liquid is present, 
+  the vapor exerts a characteristic pressure regardless of the amount of liquid water present.
+  \blankline
+  At boiling point, the vapor pressure equals the atmospheric pressure. Refer to \href{https://zhuanlan.zhihu.com/p/33133532}{this link}(click on it) 
+  for more information.
+  \blankline
+  Qualitatively, strong intermolecular forces lead to low vapor pressure. That is because the intermolecular
+  attractions strongly bond the molecules together and prevent them from escaping.
+
+\end{frame}
+\begin{frame}
+  \frametitle{Vapor Pressure}
+  Clausius-Clapeyron Equation:
+  \begin{equation*}
+    \ln(\frac{p_2}{p_1}) = \frac{\Delta H_{vap}^{\circ}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
+  \end{equation*}
+  Alternatively, 
+  \begin{equation*}
+    \ln p = \left(\ln p_0 + \frac{\Delta H_{vap}^{\circ}}{RT_1}\right) - \frac{\Delta H_{vap}^{\circ}}{R}\cdot \frac{1}{T}
+  \end{equation*} 
+  Corollaries:
+  \begin{itemize}
+    \item Boiling points increase with pressure.
+    \item Vapor pressures increase with temperature.
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Phase Diagram}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Slope of the line on the border indicates relative density. A negative slope for the solid/liquid border line means the liquid is denser.
+      \item Phase transformation occurs when $(T, p)$ crosses the border line.
+      \item Critical point is the end in the liquid/vapour phase boundary. In the supercritical region, the liquid and vapour phases are indistinguishable.
+    \end{itemize}
+    \column{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.65\textwidth]{assets/phase_diagram.png}
+    \end{figure}
+  \end{columns}
+\end{frame}
+\begin{frame}
+  \frametitle{Binary System}
+  Ideally, Raoult's Law applies to each component in the mixture:
+  \begin{equation*}
+    p_A = x_A \cdot p_{pure,A}
+  \end{equation*}
+  $x_A = n_A/\sum n$ is the mole fraction. Further, we apply Dalton's law, 
+  \begin{equation*}
+    p_{tot} = \sum x_i p_i
+  \end{equation*}
+  Corollary:
+  \begin{equation*}
+    x_{A, g} = \frac{x_{A, l}\cdot p_{A, pure}}{x_{A, l}\cdot p_{A, pure}+x_{B, l}\cdot p_{B, pure}}
+  \end{equation*}
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  The vapor pressure of acetone, $C_3H_6O$, at $7.7^{\circ}C$ is 13.3 kPa, and its enthalpy of vaporization is $29.1 \mathrm{kJ}\cdot \mathrm{mol}^{-1}$. 
+  Estimate the normal boiling point of acetone.
+  \pause
+  \blankline
+  Ans: $62.3^{\circ}C$ or $335.3$ K.
+  \blankline
+  Note that the normal boiling point is the boiling point at 1 atm. We use
+  \begin{align*}
+    \frac{1}{T} = \frac{1}{T_0} + \frac{R}{\Delta H_{vap}^{\circ}}\ln \frac{p_0}{p}
+  \end{align*}
+  Plug in the numbers and get the result.
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  Given that the vapor pressures of pure benzene and toluene at $25^{\circ}C$ are 94.6 and 29.1 Torr, respectively. Calculate
+  \begin{itemize}
+    \item[(a)] The vapor pressure at $25^{\circ}C$ of a solution of benzene in toluene where the mole fraction of benzene is 0.900.
+    \item[(b)] The mole fraction of benzene in the vapor. 
+  \end{itemize} 
+  \pause
+  Ans: (a) 88.0 Torr; (b) 0.967. \\
+  The vapor pressure is calculated by
+  \begin{equation*}
+    p_{tot} = x_{b}p_{b} + x_{t}p_{t}
+  \end{equation*}
+  The mole fraction in the vapor is calculated by
+  \begin{equation*}
+    x_{b, g} = \frac{x_{b, l}p_{b}}{x_{b, l}p_{b}+x_{t, l}p_{t}}
+  \end{equation*}
+\end{frame}
+\section{Solubility}
+\begin{frame}
+  \frametitle{Solubility}
+  The solubility of a gas: Henry's Law
+  \begin{equation*}
+    s = k_H p
+  \end{equation*}
+  Solids dissolve into liquids: 
+  \begin{equation*}
+    \Delta H = \Delta H_{L} + \Delta H_{hyd} 
+  \end{equation*}
+  Usually, sublimation ($\Delta H_L$) is endothermic and hydration ($\Delta H_{hyd}$) is exothermic.
+
+  Dissolving a solid leads to a positive $\Delta S_{sys}$. Under high temperature, solids dissolve faster but 
+  not necessarily more.
+  \blankline
+  Liquids dissolve into liquids: like dissolves like.
+\end{frame}
+\begin{frame}
+  \frametitle{Colligative Properties}
+  \textit{Colligative properties} are properties of solutions that depend only on the number of solute and solvent particles, not on the nature of the solute particles.
+  \blankline
+  You should remember the following concepts:
+  \begin{itemize}
+    \item Mole fraction: $x_i = n_i/n_{tot}$
+    \item Molality: $m_i = n(solute)/m(solvent)$
+    \item Molarity: $M_i = n(solute)/V(solution)$
+  \end{itemize}
+  Do not mix them up!
+\end{frame}
+\begin{frame}
+  \frametitle{BP Elevation and FP depression}
+  Boiling point elevation ($m$ is molality, $k$ is constant, $i$ is the Van't Hoff factor):
+  \begin{equation*}
+    \Delta T = i k_b \cdot m
+  \end{equation*}
+  Freezing point depression:
+  \begin{equation*}
+    \Delta T = i k_f \cdot m
+  \end{equation*}
+  FP depression is more significant than BP elevation. For non-electrolyte, $i = 1$. For electrolyte, $i$ is the number of ions.
+
+  Osmosis pressure:
+  \begin{equation*}
+    \Pi = iRTc
+  \end{equation*}
+  where $R$ is the ideal gas constant, $T$ is the temperature, and $c$ is the molarity.
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  The osmotic pressure of 1.50 g of polymethyl methacrylate dissolved in enough methylbenzene to produce 
+  175 mL of solution was 2.11 kPa at $20^{\circ}C$. Calculate the average molar mass of the sample of polymethyl methacrylate.
+  \pause
+  \blankline
+  Ans: 9.87 kg/mol. \\
+  Plug numbers into the following equation.
+  \begin{equation*}
+    n = cV = \frac{\Pi V}{iRT}
+  \end{equation*}
+\end{frame}
+% insert a reference frame before the 'thank you' frame ----------------------
+\begin{frame}
+  \frametitle{References}
+  
+  \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+  \bibitem{slides}
+  Milias Liu, CHEM2100J slides, Fall 2023.
+    
+  \bibitem{eiram2013cvssv2}
+  Peter Atkins, et. al., \textit{Chemical Principles}, 7th Ed. ISBN: 978-1-4641-8395-9
+    
+  \end{thebibliography}
+  \end{frame}
+
+\begin{frame}
+  \Huge{\centerline{Thank you!}}
+\end{frame}
+
+
+\end{document}

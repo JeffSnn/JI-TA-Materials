@@ -1,0 +1,405 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169]{beamer}
+% use 16:9 in new slides!
+
+\usepackage{tikz}
+\usepackage{array}
+
+\usepackage[skins]{tcolorbox}
+
+\def\blankline{\\[6pt]}
+\def\bpr#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=green!55!blue!20!white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=blue!50, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bdef#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=green!50!yellow!60!gray, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bthe#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!52, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\tcb#1{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
+#1
+\end{tcolorbox}
+}
+
+
+
+\definecolor{UMBlue}{RGB}{5,32,103}
+\definecolor{UMYellow}{RGB}{255,216,0}
+%\usetheme{Madrid}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \begin{minipage}{0.75\paperwidth}
+  \vspace{1.2ex}\hspace{-0.245\paperwidth}
+  \resizebox{\paperwidth}{3ex}{
+    \tikz{
+      \fill [color=UMBlue] (0,0) rectangle (10, 0.13);
+      \fill [color=UMYellow] (0,-0.1) rectangle (10, -0.18);
+    }
+  }
+  \begin{beamercolorbox}[wd=\linewidth,ht=2.5ex,dp=1.125ex]{section}
+    \insertsubsectionnavigationhorizontal{\linewidth}{}{Slide \insertpagenumber}
+  \end{beamercolorbox}
+  \end{minipage}
+  \begin{minipage}{0.23\paperwidth}
+  \hspace{0.2em}
+  \includegraphics[width=\linewidth]{assets/logo.png}
+  \end{minipage}
+}
+
+\setbeamercolor{title}{fg=UMBlue}
+\setbeamercolor{frametitle}{fg=UMBlue}
+\setbeamercolor{structure}{fg=UMBlue}
+
+\title[Course number]{VC210 Thermodynamics} 
+\author[]{Sun Qizhen}
+\institute[UMJI-SJTU]
+{
+	University of Michigan - Shanghai Jiaotong University
+	\\\medskip
+	Joint Institute
+}
+%----------------------------------------------------------------------------------------
+%	Highlight the title of the current section
+%----------------------------------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+
+\begin{document}
+% insert title page---------------------------
+\maketitle
+%insert contents------------------------------
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Work and Heat}
+% insert a sample frame without animation--------------------------------
+  \begin{frame}
+  \frametitle{System, Work, and Reversible Process}
+  Three kinds of systems:
+  \begin{itemize}
+    \item open: matter and energy exchanged with surroundings
+    \item closed: energy only
+    \item isolated: neither can be exchanged
+  \end{itemize}
+  Two kinds of work:
+  \begin{itemize}
+    \item expansion work: work involves a \textbf{change of volume}
+    \item non-expansion work: otherwise
+  \end{itemize}
+  Free expansion: expansion with no external pressure.
+  \blankline
+  All real-world thermodynamics processes are \textbf{irreversible}. Changes brought by a \textit{reversible} 
+  process can be cancelled by some process, and there is no overall changes to the surroundings. You may refer to \href{https://zhuanlan.zhihu.com/p/33133532}{this link}(click on it) for further information.
+
+  \end{frame}
+  \begin{frame}
+    \frametitle{First Law of Thermodynamics}
+    $$\Delta U = Q + W$$
+    where $Q$ is the heat \textbf{absorbed} by the system, $W$ is the work done \textbf{to} the system. You can also write it as $\Delta U = Q - W$ where $W$ is the work done \textbf{by} the system.
+    \blankline
+    Corollary: The internal energy of an isolated system is constant.
+    \blankline
+    For expansion work, 
+    $$dW = -P_{ex}dV$$
+    More about internal energy: $U$ consists of molecular kinetic and potential energy. An estimate (vibrational energy neglected) 
+    value of molar internal energy is given by $\frac{5RT}{2}$ for linear molecules and $\frac{6RT}{2}$ for nonlinear molecules. 
+  \end{frame}
+  \begin{frame}
+    \frametitle{Exercise}
+    Water expands when it freezes. How much work is done \textit{to} 100g water when it freezes at $0^{\circ}C$ and pushes back the metal wall
+    of a pipe that exerts an opposing pressure of 1070 atm? The densities of water and ice at $0^{\circ}C$ are $1.00\ g\cdot cm^{-3}$ 
+    and $0.92\ g\cdot cm^{-3}$ respectively. \pause
+    \blankline
+    Answer: -943J
+
+    We simply calculate the volume difference and multiply it with the pressure and get our answer.
+    Pay attention to the negative sign here.
+  \end{frame}
+  \begin{frame}
+    \frametitle{Heat Capacity}
+    $$C = \frac{Q}{\Delta T}$$
+    The specific heat capacity and molar heat capacity are respectively
+    $$C_{s} = \frac{C}{m}, \qquad C_m = \frac{C}{n} $$
+  \end{frame}
+\section{Enthalpy}
+  \begin{frame}
+    \frametitle{Enthalpy}
+    \textit{Enthalpy} is defined as follows. It is also a state function. Actually, it has no obvious physical meaning at all.
+    $$H := U + pV$$
+    Under constant pressure
+    $$\Delta H = Q$$
+    Under constant volume
+    $$\Delta U = Q$$
+    In chemical reactions, $\Delta H$ stands for the heat change during the reaction. $\Delta H < 0$ means the reaction is \textit{exothermic}; $\Delta H > 0$ means the reaction is \textit{endothermic}. Recall that $Q$ stands for the heat \textbf{absorbed}.
+  \end{frame}
+  \begin{frame}
+    \frametitle{More about Heat Capacity}
+    Note that
+    \begin{align*}
+      C_{V, m} = \frac{Q}{\Delta T} &= \frac{\Delta U}{\Delta T}, &\text{const volume} \\
+      C_{p, m} = \frac{Q}{\Delta T} &= \frac{\Delta H}{\Delta T} = \frac{\Delta U + pV}{\Delta T} = C_V + nR, &\text{const pressure}
+    \end{align*}
+    Copy the following table to your cheating paper!
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{c | c | c | c}
+          & Monoatomic & Linear & Nonlinear \\[4pt]
+        \hline
+        $C_{V, m}$ & $\frac{3}{2}R$ & $\frac{5}{2}$R & $3R$ \\[3pt]
+        $C_{p, m}$ & $\frac{5}{2}R$ & $\frac{7}{2}$R & $4R$
+      \end{tabular}
+    \end{table}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Enthalpy in Chemical Changes}
+    $\Delta U$ and $\Delta H$ is different when gas is formed. 
+    $$\Delta H = \Delta U + \Delta n_{gas}RT $$
+    \textit{Hess's Law}: For multiple reactions, we can add up the enthalpies when combining up the reactions.
+    \blankline
+    \textit{Standard Enthalpy of Formation}: Denoted by $\Delta H_{f}^{\circ}$. Change in enthalpy for forming \textbf{one mole} molecule in standard state ($25^{\circ}C$, 1 bar). 
+    We usually choose the elements in their most stable form. One exception is Phosphorous.
+    \blankline
+    The standard reaction enthalpy can then be calculated as
+    $$\Delta H^{\circ} = \sum n \Delta H_{f}^{\circ}(\text{products}) - \sum n \Delta H_{f}^{\circ}(\text{reactants})$$
+  \end{frame}
+  \begin{frame}
+    \frametitle{Enthalpy in Chemical Changes}
+    Reaction enthalpy with temperature: 
+    $$\Delta H_{T_2}^{\circ} - \Delta H_{T_1}^{\circ} = (T_2 - T_1)\left(\sum n C_{p, m}(\text{products}) - \sum n C_{p, m}(\text{reactants}) \right)$$
+    Born-Haber Cycle: An application of Hess's Law.
+    \blankline
+    Heating Curve: A temperature-heat curve. When the state of the sample is changing, 
+    temperature is unchanged. The slope stands for the heat capacity at that stage, i.e.
+    $$\frac{dT}{dq} = C$$
+  \end{frame}
+  \begin{frame}
+    \frametitle{Exercise}
+    Calculate the final temperature and the enthalpy change when 500.J of heat is transferred to 0.900 mol $O_2$ at 298K and 1.00 atm at
+    \begin{itemize}
+      \item (a) constant pressure
+      \item (b) constant volume
+    \end{itemize}
+    You should assume $O_2$ behaves as an ideal gas and there is no vibrational contribution to the molar heat capacity.
+    \pause
+    \blankline
+    Answer: (a) 317K, 500.J; (b) 325K, 700.J 
+
+    Pay attention to the dots after $500$ and $700$, they indicate that the two numbers have 3 significant digits.
+  \end{frame}
+\section{Entropy}
+% insert a sample frame with animation 2 -----------------------------------
+  \begin{frame}
+    \frametitle{Calculations about entropy}
+    Entropy change in a system (under const pressure, $Q_{rev} = \Delta H$):
+    \begin{equation*}
+      \Delta S = \frac{Q_{rev}}{T}
+    \end{equation*}
+    Corollaries:
+    \begin{align*}
+      \Delta S &= C\ln\left(\frac{T_2}{T_1}\right), \ \text{$C$ is the heat capacity} \\
+      \Delta S &= nR\ln\left(\frac{V_2}{V_1}\right) \\
+      \Delta S &= nR\ln\left(\frac{P_1}{P_2}\right)
+    \end{align*}
+    We can calculate the entropy change by separating the process into several steps, each of which changes only one 
+    related quantity ($T$, $V$, or $p$).
+  \end{frame}
+  \begin{frame}
+    \frametitle{Boltzmann's Formula}
+    Statistical entropy ($W$ is the number of microstates):
+    \begin{equation*}
+      S = k \ln W
+    \end{equation*}
+    For $n$ molecules, if each of the molecule has $t$ kinds of orientation, 
+    \begin{equation*}
+      S = k \ln t^n = nk \ln t
+    \end{equation*}
+    A relation between $k$ and the constants you are familiar with:
+    \begin{equation*}
+      k = R/N_A
+    \end{equation*}
+    where $R$ is the ideal gas constant, and $N_A$ is the Avogadro constant.
+  \end{frame}
+  \begin{frame}
+    \frametitle{Standard Molar Entropies}
+    Our motivation is to integrate the following formula with the condition that $S=0$ at $T=0$ for perfect crystals.
+    \begin{equation*}
+      dS = \frac{CdT}{T}
+    \end{equation*}
+    Note that $C$ is the heat capacity, and it usually changes with temperature under low temperatures.
+    \blankline
+    Complex and heavy molecules have higher standard molar entropy. Also, 
+    \begin{equation*}
+      S_{m, gas}^{\circ} > S_{m, liquid}^{\circ} > S_{m, solid}^{\circ}
+    \end{equation*}
+    We can calculate the standard entropy change of a reaction by
+    \begin{equation*}
+      \Delta S_{system}^{\circ} = \sum n S_{m, products}^{\circ} - \sum n S_{m, reactants}^{\circ}
+    \end{equation*}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Total Entropy}
+    The total entropy of a system and its surroundings is
+    \begin{equation*}
+      \Delta S_{total} = \Delta S_{system} + \Delta S_{surroundings} = \Delta S_{system} - \frac{\Delta H_{system}}{T}
+    \end{equation*}
+    Note that the second equality requires constant pressure. Also, the surrounding entropy is not a state function.
+    \blankline
+    A positive value for total entropy indicates that the process is spontaneous. A negative value indicates the reverse process is spontaneous.
+    A zero value indicates neither of them is spontaneous.
+    \blankline
+    In an isolated system, 
+    \begin{equation*}
+      \Delta S = \frac{Q_{rev}}{T}\geq \frac{Q}{T}\geq 0
+    \end{equation*}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Gibbs Free Energy}
+    Gibbs free energy is defined as
+    \begin{equation*}
+      G = H - TS
+    \end{equation*}
+    It is a state function, and it can tell us whether a process is spontaneous or not.
+    \begin{equation*}
+      \Delta G = \Delta H - T\Delta S = T(\frac{\Delta H}{T} - \Delta S) = -T(\Delta S_{sys} + \Delta S_{surroundings}) = -T\Delta S_{total}
+    \end{equation*}
+    $\Delta G_f^{\circ}$ is the standard Gibbs free energy of formation. A positive $\Delta G_{f}^{\circ}$ indicates that elements tend to form the 
+    compound. A negative value indicates the compound is thermodynamically unstable. However, the decomposition may be slow, which is called \textit{inert} or \textit{non-labile}.
+    \blankline
+    With the formula of Gibbs free energy, we can see that a non-spontaneous reaction may become a spontaneous one under certain temperature.
+
+  \end{frame}
+  \begin{frame}
+    \frametitle{Exercise}
+    The temperature of 1.00 mol He(g) is increased from $25.^{\circ}C$ to $300.^{\circ}C$ at constant volume. What is the 
+    change in the entropy of the helium?
+    
+    You should assume ideal behavior and that there is no vibrational contribution to the molar heat capacity.
+    \pause
+    \blankline
+    Answer: 8.15 J/K
+    $$\Delta S = nC_{V, m, monoatomic}\ln(\frac{T_2}{T_1}) $$
+  \end{frame}
+  \begin{frame}
+    \frametitle{Exercise}
+    1.00 mol $O_2$(g) was compressed suddenly (and irreversibly) from 5.00 L to 1.00 L by 
+    driving in a piston, and in the process its temperature was increased from $20.0^{\circ}C$ to $25.2^{\circ}C$. 
+    What is the change in entropy of the gas?
+
+    Assume ideal behavior and that there is no vibrational contribution to the molar heat capacity.
+    \pause
+    \blankline
+    Answer: -13.0 J/K
+
+    We can separate the process into two steps.
+    \begin{align*}
+      \Delta S  &= \Delta S_1 + \Delta S_2 \\
+                &= nR\ln(\frac{V_2}{V_1}) + nC_{V, m, diatomic}\ln(\frac{T_2}{T_1}) \\
+                &= -13.38 J/K + 0.36 J/K = -13.0 J/K 
+    \end{align*}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Exercise}
+    Calculate the entropy of vaporization of 1 mol acetone at 296 K with an external pressure of 1 bar. The molar heat capacity of liquid
+    acetone is 127 J/(K mol), its boiling point is 329.4 K, and its enthalpy of vaporization is 29.1 kJ/mol.
+
+    Assume ideal behavior and that there is no vibrational contribution to the molar heat capacity.
+    \pause
+    \blankline
+    Answer: 98.4 J/K
+    \begin{align*}
+      \Delta S  &= \Delta S(heat\ up) + \Delta S(vaporize) + \Delta S(cool\ down) \\
+                &= C_{liquid} \ln(\frac{T_2}{T_1}) + \frac{\Delta H_{vap}}{T_{boil}} + C_{gas} \ln(\frac{T_1}{T_2}) \\  
+                &= 13.58 J/K + 88.34 J/K - 3.56 J/K = 98.4 J/K
+    \end{align*}
+    where $C_{gas} = 4R$.
+  \end{frame}
+  \section{Homework Problems}
+  \begin{frame}
+    \frametitle{Midterm Q2}
+    2-Methyl-1, 3, 5-trinitrobenzene ($C_7H_5N_3O_6$), informally known as TNT is shown on 
+    the right. It is a well-known explosive that will release $N_2$, $H_2$, and 
+    CO (as well as C in the form of soot) upon ignition.
+    \blankline
+    (a) What is the reaction equation of the explosion of TNT?
+    
+    (b) What volume of gas is released upon the explosion of an 
+  M107 artillery shell, filled with 6.83 kg of TNT at 25 °C 
+  and 1 atm?
+  \end{frame}
+  \begin{frame}
+    \frametitle{Chapter 07 Q18}
+    \includegraphics[scale = 0.9]{assets/C07Q18.png}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Chapter 08 Q5}
+    \includegraphics[scale = 0.9]{assets/C08Q5.png}
+  \end{frame}
+
+% insert a reference frame before the 'thank you' frame ----------------------
+\begin{frame}
+  \frametitle{References}
+  
+  \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+  \bibitem{slides}
+  Milias Liu, CHEM2100J slides, Fall 2023.
+    
+  \bibitem{eiram2013cvssv2}
+  Peter Atkins, et. al., \textit{Chemical Principles}, 7th Ed. ISBN: 978-1-4641-8395-9
+
+  \bibitem{RCslides}
+  Jason Chow, CHEM2100J slides, Fall 2022.
+    
+  \end{thebibliography}
+  \end{frame}
+
+\begin{frame}
+  \Huge{\centerline{Thank you!}}
+\end{frame}
+
+
+\end{document}

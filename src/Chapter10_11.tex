@@ -1,0 +1,426 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169]{beamer}
+% use 16:9 in new slides!
+
+\usepackage{tikz}
+\usepackage{array}
+
+\usepackage[skins]{tcolorbox}
+
+\def\blankline{\\[12pt]}
+\def\bpr#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=green!55!blue!20!white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=blue!50, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bdef#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=green!50!yellow!60!gray, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bthe#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!52, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\tcb#1{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
+#1
+\end{tcolorbox}
+}
+
+
+
+\definecolor{UMBlue}{RGB}{5,32,103}
+\definecolor{UMYellow}{RGB}{255,216,0}
+%\usetheme{Madrid}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \begin{minipage}{0.75\paperwidth}
+  \vspace{1.2ex}\hspace{-0.245\paperwidth}
+  \resizebox{\paperwidth}{3ex}{
+    \tikz{
+      \fill [color=UMBlue] (0,0) rectangle (10, 0.13);
+      \fill [color=UMYellow] (0,-0.1) rectangle (10, -0.18);
+    }
+  }
+  \begin{beamercolorbox}[wd=\linewidth,ht=2.5ex,dp=1.125ex]{section}
+    \insertsubsectionnavigationhorizontal{\linewidth}{}{Slide \insertpagenumber}
+  \end{beamercolorbox}
+  \end{minipage}
+  \begin{minipage}{0.23\paperwidth}
+  \hspace{0.2em}
+  \includegraphics[width=\linewidth]{assets/logo.png}
+  \end{minipage}
+}
+
+\setbeamercolor{title}{fg=UMBlue}
+\setbeamercolor{frametitle}{fg=UMBlue}
+\setbeamercolor{structure}{fg=UMBlue}
+
+\title[Course number]{VC210 Chemical Equilibrium and Acid-Base} 
+\author[]{Sun Qizhen}
+\institute[UMJI-SJTU]
+{
+	University of Michigan - Shanghai Jiaotong University
+	\\\medskip
+	Joint Institute
+}
+%----------------------------------------------------------------------------------------
+%	Highlight the title of the current section
+%----------------------------------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+
+\begin{document}
+% insert title page---------------------------
+\maketitle
+%insert contents------------------------------
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+
+\section{Chemical Equilibrium}
+\begin{frame}
+  \frametitle{Chemical Equilibrium}
+  Chemical equilibrium is a dynamic equilibrium. When the equilibrium is reached, forward rate equals reverse rate.
+  \blankline
+  For such a reaction 
+  \begin{equation*}
+    aA + bB \rightleftharpoons cC + dD
+  \end{equation*}
+  The reaction quotient is defined as
+  \begin{equation*}
+    Q = \frac{a_C^c a_D^d}{a_A^a a_B^b}
+  \end{equation*}
+  where $a_i$ is the activity. Usually, $a_i = \frac{p_i}{1\text{ bar}}$ for gases and $a_i = \frac{c_i}{1 \text{ mol/L}}$ for solutions. 
+  Under equilibrium, $Q = K$ is called the equilibrium constant.
+\end{frame}
+\begin{frame}
+  \frametitle{Origin of $K$}
+  Here is an equation that relates the Gibbs free energy change to reaction quotient.
+  \begin{equation*}
+    \Delta G_r = \Delta G_r^{\circ} + RT \ln Q
+  \end{equation*}
+  Under equilibrium, 
+  \begin{equation*}
+    \Delta G_r = 0 \Rightarrow \Delta G_r^{\circ} = -RT \ln K
+  \end{equation*}
+  Recall that $\Delta G = 0$ means neither the reaction nor the reverse reaction is spontaneous. \\
+  Plug in the definition of Gibbs free energy and we can get the relationship between $K$ and $T$.
+  \begin{equation*}
+    \ln (\frac{K_2}{K_1}) = \frac{\Delta H^{\circ}}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)
+  \end{equation*}
+\end{frame}
+\begin{frame}
+  \frametitle{ICE Table}
+  When dealing with problems about equilibriums, a tool often used is ICE table.
+  \blankline
+  We write down all reactants and products, and record their initial, change, and equilibrium concentrations. 
+  Get an equation with $K$ and solve for the unknown(s).
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      & Initial & Change & Equilibrium \\
+      \hline
+      A & $a$ & $-x$ & $a-x$ \\
+      \hline
+      B & $b$ & $-x$ & $b-x$ \\
+      \hline
+      C & $0$ & $+x$ & $x$ \\
+      \hline
+      D & $0$ & $+x$ & $x$ \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{frame}
+\begin{frame}
+  \frametitle{Approximation}
+  The "5\%" approximation is commonly used in Chemistry. It is definitely OK if you do not use it. However, I hope 
+  you can see how powerful it is. Here is a simple example.
+  \blankline
+  For the ionization of a weak monoacid, suppose the initial concentration of $HA$ is $c$, and the equilibrium constant is $K_a$, 
+  calculate the pH value of the solution.
+  \pause
+  \blankline
+  It is easy to see
+  \begin{equation*}
+    K_a = \frac{[H^+][A^-]}{[HA]} = \frac{x^2}{c-x}
+  \end{equation*}
+  Since $x$ is insignificant compared to $c$, we treat $c-x\approx c$ and get
+  \begin{equation*}
+    [H^+] = x = \sqrt{cK_a}
+  \end{equation*}
+  In a complicated system, the approximation will greatly simplify the calculation!
+\end{frame}
+\begin{frame}
+  \frametitle{Approximation}
+  This slide is not required in this course, but it will help you understand the approximation better.
+  \blankline
+  A common problem is about the precondition of applying approximation. We can interpret it 
+  mathematically. Which ones of the following are correct?
+  \begin{itemize}
+    \item $x + o(1) = x$
+    \item $x + o(x) = x$
+    \item $(x + o(x))f(x) = xf(x)$
+    \item $(x + o(x))f(x) + g(x) = xf(x) + g(x)$
+  \end{itemize}
+  In Chemistry, our criteria is that the relative error of the final result is no larger than $5\%$. 
+  In most real-life cases, the relative error is very small (the case in the last slide).
+\end{frame}
+\begin{frame}
+  \frametitle{Le Chatelier's principle}
+  Le Chatelier's principle describes the response of equilibria to changes in 
+  different conditions.
+  \blankline
+  Here is a concise statement from Tao Te Ching that summarizes the principle.
+  \begin{quote}
+    Heaven's Way is like stretching a bow.\\
+    The high is lowered and the low is raised. \\
+    Excess is reduced and deficiency is replenished.
+  \end{quote}
+  Or simply, the reaction will go in the direction that reduces the effect of the change.
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  The initial partial pressures of nitrogen and hydrogen in a rigid, sealed vessel are 0.010 and 0.020 bar, 
+  respectively. The mixture is heated to a temperature at which K = 0.11 for
+  \begin{equation*}
+    N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)
+  \end{equation*}
+  Calculate the partial pressure of ammonia at equilibrium.
+  \pause
+  \blankline
+  Ans: $9.26\times 10^{-5}\ bar$. \\
+  The ICE table is
+  \begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      & Initial & Change & Equilibrium \\
+      \hline
+      $N_2$ & $0.010$ & $-x$ & $0.010-x$ \\
+      \hline
+      $H_2$ & $0.020$ & $-3x$ & $0.020-3x$ \\
+      \hline
+      $NH_3$ & $0$ & $+2x$ & $2x$ \\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  Now, we need to solve the equation
+  \begin{equation*}
+    \frac{\left(2x\right)^2}{\left(0.01-x\right)\left(0.02-3x\right)^3} = 0.11
+  \end{equation*}
+  There are some approaches:
+  \begin{itemize}
+    \item Solve directly with Casio. Note: this approach (Newton's Method) does not always give you the correct answer.
+    \item Naive approximation. Solve the function as if $x$ is very small, which gives $2x = \sqrt{0.11\times 0.01\times 0.02^3}\approx 9.38\times 10^{-5}$
+    \item Nicer approximation. Treat the equation as the quadratic equation $\frac{(2x)^2}{(0.01 - x)(0.02 - 3\cdot 3x \cdot 0.02^2)} = 0.11$, which gives $2x = 9.26\times 10^{-5}$, 
+    close to the real value.
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  Under certain conditions, $6H_2(g) + 2CO_2(g) \rightleftharpoons C_2 H_5 OH(g) + 3H_2O(g)$, the equilibrium 
+  percentage conversion of $CO_2$ is as the figure shows. Which one(s) of the following is(are) correct?
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item[A.] The mole fraction of $CO_2$: $a > b$
+      \item[B.] The mole fraction of $C_2H_5OH$: $a < c$
+      \item[C.] Equilibrium constant: $K_a > K_c > K_b$
+      \item[D.] Reaction rate: $v_a(CO_2) < v_b(CO_2)$  
+    \end{itemize}
+    \column{0.5\textwidth}
+    \includegraphics[width=0.8\linewidth]{assets/exercise_1.jpg}
+  \end{columns}
+  \pause
+  Ans: D.
+\end{frame}
+\section{Acid-Base}
+\begin{frame}
+  \frametitle{Definitions}
+  Arrhenius: An acid produces $H^{+}$ and a base produces $OH^{-}$ in water. \\
+  Bronsted-Lowry: An acid is a proton donor and a base is a proton acceptor. \\
+  Lewis: An acid is an electron pair acceptor and a base is an electron pair donor.
+  \blankline
+  An acid becomes its conjugate base after donating a proton. 
+  A base becomes its conjugate acid after accepting a proton.
+  \blankline
+  \textit{Amphoteric oxides} can react with either an acid or a base. Example: $Al_2O_3$ \\
+  \textit{Amphiprotic substances} can either donate or accept a proton. Example: $H_2O$
+\end{frame}
+\begin{frame}
+  \frametitle{Equilibrium Constant for Water}
+  \textit{Autoprotolysis} constant of water is
+  \begin{equation*}
+    K_w = [H^+][OH^-] = 10^{-14}
+  \end{equation*}
+  $K_w$ increases with temperature because the dissociation of water is endothermic.
+  \\[6pt]
+  pH is defined as $-\log[H^+]$. pOH is defined as $-\log[OH^-]$. 
+  \\[6pt]
+  When calculating the pH of a solution of some acid or base, we usually neglect the contribution of the 
+  autoprotolysis of water. However, this is not always true. 
+  \\[6pt]
+  Example: Calculate the pH of $1\times 10^{-7} M$ NaOH solution.
+\end{frame}
+\begin{frame}
+  \frametitle{Weak Acids and Bases}
+  For a weak acid $HA$, we define
+  \begin{equation*}
+    K_a = \frac{[H_3O^+][A^-]}{[HA]}, \quad pK_a = -\log K_a
+  \end{equation*}
+  Similar for a weak base. 
+  For a weak acid $HA$, we can write down the $K_a$ and the $K_b$ for its conjugate base.
+  \begin{equation*}
+    K_a = \frac{[H_3O^+][A^-]}{[HA]}, \quad K_b = \frac{[HA][OH^-]}{[A^-]}
+  \end{equation*}
+  Note that
+  \begin{equation*}
+    K_a K_b = K_w, \quad pK_a + pK_b = 14
+  \end{equation*}
+  Percentage deprotonated = $\frac{[A^-]}{[HA]_{ini}} \times 100\%$ measures how manually
+  acid molecules dissociate.
+\end{frame}
+\begin{frame}
+  \frametitle{Acid Strength}
+  There is no general theory, but usually increasing electronegativity 
+  leads to the increase of acid strength of $H_nX$. 
+  \begin{itemize}
+    \item Same Period: Acid strength increases from left to right.
+    \item Same Group: Acid strength increases from top to bottom. 
+  \end{itemize}
+  For oxoacids, in groups with the same number of oxygen atoms, the greater the electronegativity the greater the acidity;
+  in a family of the same element, the greater the number of oxygen atoms the greater the acidity. 
+  \blankline
+  In addition, resonances may also affect the acidity. (usually not required)
+\end{frame}
+\begin{frame}
+  \frametitle{Polyprotic Acids and Bases}
+  A polyprotic acid can donate more than one proton. Usually, $K_{a1} >> K_{a2} >> K_{a3}$. 
+  \blankline
+  To calculate the concentrations of all the solute species in a polyprotic acid solution, we can assume 
+  that the concentrations of species with a greater amount are not affected significantly by the species with a smaller amount.
+  \\
+  Example: For $H_3PO_4$, only the first dissociation affects the concentration of $H_2PO_4^{-}$. 
+  \blankline
+  Concentrations of species present in a $H_2A$ solution vary with pH:
+  \begin{align*}
+    \frac{[H_2A]}{c_{ini}} &= \frac{[H_3O^+]^2}{[H_3O^+]^2 + [H_3O^+]K_{a1} + K_{a1}K_{a2}} \\
+    \frac{[HA^-]}{c_{ini}} &= \frac{[H_3O^+]K_{a1}}{[H_3O^+]^2 + [H_3O^+]K_{a1} + K_{a1}K_{a2}} \\
+    \frac{[A^{2-}]}{c_{ini}} &= \frac{K_{a1}K_{a2}}{[H_3O^+]^2 + [H_3O^+]K_{a1} + K_{a1}K_{a2}}
+  \end{align*}
+\end{frame}
+\begin{frame}
+  \frametitle{Balance Equations}
+  There are three important balance relation. Take $Na_2CO_3$ as an example.
+  \begin{itemize}
+    \item Charge-balance relation: $[H^+] + [Na^+] = [OH^-] + [HCO_3^{-}] + 2[CO_3^{2-}]$
+    \item Material-balance relation: $[Na^+] = 2([H_2CO_3] + [HCO_3^{-}] + [CO_3^{2-}])$
+    \item Proton-balance relation: $[H^+] + [HCO_3^{-}] + 2[H_2CO_3] = [OH^-]$ 
+  \end{itemize}
+  You can view these relations as another form of ICE table. \\
+  Some conclusions:
+  \begin{itemize}
+    \item $[H_3O^+]^2 - [HCl]_{ini}[H_3O^+] - K_w = 0$ for any strong acid.
+    \item $[H_3O^+]^2 - [NaOH]_{ini}[H_3O^+] - K_w = 0$ for any strong base.
+    \item $[H_3O^+]^3 + K_a [H_3O^+]^2 - (K_w + K_a[HA]_{ini})[H_3O^+] - K_aK_w = 0$ for weak acids. 
+  \end{itemize}
+  How to prove them? (Not required)
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  Given that for $H_2S$, $K_{a1} = 1.3\times 10^{-7}$, and $K_{a2} = 7.1\times 10^{-15}$. Calculate the 
+  concentration of all solute species in $0.20\ M$ $H_2S(aq)$.
+  \pause
+  \blankline
+  Ans: \\
+  $[H_2S] = c = 0.20 M$ \\
+  $[H_3O^+] = [HS^-] = \sqrt{cK_a} = 1.6\times 10^{-4}$ M \\
+  $[OH^-] = K_w/[H_3O^+] = 6.2\times 10^{-11}$ \\
+  $[S^{2-}] = \frac{[HS^-]}{[H_3O^+]}K_{a2} = K_{a2} = 7.1\times 10^{-15}$
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  Estimate the pH of $2.0\times 10^{-4}$ M HCN(aq) given that for HCN, $K_a = 4.9\times 10^{-10}$.
+  \pause
+  \blankline
+  Ans: Plug the numbers into the equation
+  \begin{equation*}
+    [H_3O^+]^3 + K_a [H_3O^+]^2 - (K_w + K_a[HA]_{ini})[H_3O^+] - K_aK_w = 0
+  \end{equation*}
+  and get
+  \begin{equation*}
+    [H_3O^+] = 3.28\times 10^{-7} M, \quad pH = 6.48
+  \end{equation*}
+\end{frame}
+\section{Homework Problems}
+\begin{frame}
+  \frametitle{C09Q09}
+  \includegraphics[width=\linewidth]{assets/C09Q09.png}
+\end{frame}
+\begin{frame}
+  \frametitle{C10Q12}
+  \includegraphics[width=\linewidth]{assets/C10Q12.png}
+\end{frame}
+% insert a reference frame before the 'thank you' frame ----------------------
+\begin{frame}
+  \frametitle{References}
+  
+  \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+  \bibitem{slides}
+  Milias Liu, CHEM2100J slides, Fall 2023.
+    
+  \bibitem{eiram2013cvssv2}
+  Peter Atkins, et. al., \textit{Chemical Principles}, 7th Ed. ISBN: 978-1-4641-8395-9
+    
+  \end{thebibliography}
+\end{frame}
+
+\begin{frame}
+  \Huge{\centerline{Thank you!}}
+\end{frame}
+
+
+\end{document}
