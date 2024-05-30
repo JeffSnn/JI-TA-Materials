@@ -1,4 +1,6 @@
-# CHEM2100J-RC-Slides
-The RC slides of CHEM2100J in FA2023.
+# JI-TA-Materials
+All materials I collected when working as the TA in JI. Include
+* CHEM2100J Chemistry
+* MATH2030J Discrete Mathematics
 
-For future TAs of this course, feel free to use my slides. 
+For future TAs of these courses, feel free to use my slides. 
