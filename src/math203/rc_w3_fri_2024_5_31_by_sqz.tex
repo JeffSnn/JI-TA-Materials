@@ -1,0 +1,418 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169]{beamer}
+% use 16:9 in new slides!
+
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{amssymb}
+
+\usepackage[skins]{tcolorbox}
+
+\def\blankline{\\[12pt]}
+\def\bpr#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=green!55!blue!20!white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=blue!50, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bdef#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=green!50!yellow!60!gray, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bthe#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!52, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\tcb#1{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
+#1
+\end{tcolorbox}
+}
+
+
+
+\definecolor{UMBlue}{RGB}{5,32,103}
+\definecolor{UMYellow}{RGB}{255,216,0}
+%\usetheme{Madrid}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \begin{minipage}{0.75\paperwidth}
+  \vspace{1.2ex}\hspace{-0.245\paperwidth}
+  \resizebox{\paperwidth}{3ex}{
+    \tikz{
+      \fill [color=UMBlue] (0,0) rectangle (10, 0.13);
+      \fill [color=UMYellow] (0,-0.1) rectangle (10, -0.18);
+    }
+  }
+  \begin{beamercolorbox}[wd=\linewidth,ht=2.5ex,dp=1.125ex]{section}
+    \insertsubsectionnavigationhorizontal{\linewidth}{}{Slide \insertpagenumber}
+  \end{beamercolorbox}
+  \end{minipage}
+  \begin{minipage}{0.23\paperwidth}
+  \hspace{0.2em}
+  \includegraphics[width=\linewidth]{assets/logo.png}
+  \end{minipage}
+}
+
+\setbeamercolor{title}{fg=UMBlue}
+\setbeamercolor{frametitle}{fg=UMBlue}
+\setbeamercolor{structure}{fg=UMBlue}
+
+\title[Course number]{MATH203 RC Week 3 Friday} 
+\author[]{Sun Qizhen}
+\institute[UMJI-SJTU]
+{
+	University of Michigan - Shanghai Jiaotong University
+	\\\medskip
+	Joint Institute
+}
+%----------------------------------------------------------------------------------------
+%	Highlight the title of the current section
+%----------------------------------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+
+\begin{document}
+% insert title page---------------------------
+\maketitle
+%insert contents------------------------------
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+\section{Introduction to My RC}
+
+\begin{frame}
+  \frametitle{About Me}
+  You may contact me via
+  \begin{itemize}
+    \item Email: \href{mailto:qz_sun@sjtu.edu.cn}{qz\_sun@sjtu.edu.cn}
+    \item Feishu: Search me by my name
+    \item WeChat ID: \texttt{Scojesu\_16}
+  \end{itemize}
+  Feel free to ask any questions about \LaTeX, the course materials, my RCs, or anything else.
+
+\end{frame}
+\begin{frame}
+  \frametitle{About My RC}
+  I usually upload my slides several days before the RC. My RCs may differ from the ones held by the other
+  two TAs in the following aspects. 
+  \begin{itemize}
+    \item Contain less content about basic concepts. I assume you have attended the lectures, and only provide a basic review of the 
+    concepts unless they are really hard to comprehend.
+    \item Include more exercise. I have provided a set of problems that may be used in my RC in the file section in canvas.
+    You are encouraged to try them yourselves before the RC.
+    \item Talk about stuff that beyond the course scope, or not required in the exams sometimes. However, they will be marked by a star 
+    such that you can skip them if you are not interested.
+  \end{itemize}
+\end{frame}
+\section{Logic}
+\begin{frame}
+  \frametitle{Things You Should Know}
+  \begin{itemize}
+    \item Cartesian Product: $A\times B$
+    \item Power Set: $\mathcal{P}(A)$ or $2^A$
+    \item All basic logic operators: $\land, \lor, \lnot, \oplus, \rightarrow, \Rightarrow$
+    \item Proof technique: Proof by Contradiction
+    \item Logical Quantifiers
+    \item Truth Trees (aka. Semantic Tableau) for First-Order Logic
+    \item Natural Deduction
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{What You Need NOT Know}
+  You may be curious about what will be tested in the exam.
+  Usually, there will be one problem concerning the truth tree and another one concerning the natural deduction in the midterm. 
+  In addition, 
+  \begin{itemize}
+    \item Anything about Lean will not be covered in the exam
+    \item Graph theory was removed from this course
+    \item Rules for natural deduction will be provided in the exam
+  \end{itemize}
+  If you are not sure whether some theorem or conclusion will be tested, feel free to ask (better ask on piazza).
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  I believe the logic part is not hard for you. So let us directly jump to the exercise part.
+  \blankline
+  \textbf{Ex. 1} Prove the followings using truth trees.
+  \begin{itemize}
+      \item[(a)] $\vdash \lnot \forall x \exists y \left(\lnot P(x) \land P(y)\right)$
+      \item[(b)] $\vdash \exists x \forall y \left(P(x) \lor \lnot P(y)\right)$
+  \end{itemize}
+  \vspace*{20pt}
+  You may try on \url{ https://www.umsu.de/trees/} yourself for the solution.
+\end{frame}
+\begin{frame}
+  \frametitle{Solution}
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  \textbf{Ex. 2} Use a natural deduction tree to prove 
+  \begin{equation*}
+      \left(\lnot P \lor Q \right) \vdash \left(P \rightarrow Q\right)
+  \end{equation*}
+  and the other way around, i.e. 
+  \begin{equation*}
+      \left(P \rightarrow Q\right) \vdash \left(\lnot P \lor Q \right)
+  \end{equation*}
+\end{frame}
+\begin{frame}
+  \frametitle{Solution}
+\end{frame}
+\section{Mathematical Induction}
+\begin{frame}
+  \frametitle{Basic Induction}
+  Induction on $\mathbb{N}$. 
+  \begin{itemize}
+    \item \textbf{Base Case}: $P(0)$ is true 
+    \item \textbf{Inductive Case}: $\forall k\in \mathbb{N}, P(k)\rightarrow P(k + 1)$ 
+    \item \textbf{Conclusion}: $P(n)$ is true for all $n\in \mathbb{N}$ 
+  \end{itemize}
+  Strong Induction on $\mathbb{N}$
+  \begin{itemize}
+    \item \textbf{Base Case}: $P(0)$ is true 
+    \item \textbf{Inductive Case}: $\forall k\in \mathbb{N}, P(0) \land P(1) \land \cdots \land P(k) \rightarrow P(k + 1)$ 
+    \item \textbf{Conclusion}: $P(n)$ is true for all $n\in \mathbb{N}$ 
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Monoid}
+  A \textit{monoid} is a triple $\left(M, *, e\right)$ where $M$ is a set, $e\in M$ and $*: M\times M\to M$ such that
+  for all $x, y, z\in M$
+  \begin{itemize}
+    \item Identity Element: $x * e = e * x = x$
+    \item Associativity: $\left(x * y\right) * z = x * \left(y * z\right)$
+  \end{itemize}
+  The identity element is unique for a monoid.
+  \\[12pt]
+  Our course will cover basics in group theory later. Now you only need to know the definitions and some basic
+  properties of these abstract structures.
+\end{frame}
+\begin{frame}
+  \frametitle{Recursively Defined Structures}
+  A natural number is either
+  \begin{itemize}
+    \item zero
+    \item the successor of a natural number $n$
+  \end{itemize}
+  \vspace*{12pt}
+  The set of all natural numbers is defined as
+  \begin{itemize}
+    \item $0\in\mathbb{N}$
+    \item If $n\in\mathbb{N}$, then $n^+ \in \mathbb{N}$
+  \end{itemize}
+  $\mathbb{N}$ is defined as the \textit{smallest set} satisfy the two rules. By default, we consider
+  the set being defined the smallest set containing these elements.
+\end{frame}
+\begin{frame}
+  \frametitle{Structural Induction}
+  The set $\Sigma^*$ of \textit{strings} over the alphabet $\Sigma$ is defined recursively by
+  \begin{itemize}
+    \item The empty string $\varepsilon \in \Sigma^*$
+    \item If $a\in\Sigma$ and $x\in\Sigma^*$, $ax:=\left(a, x\right)\in\Sigma^*$
+  \end{itemize}
+  $ax := \left(a, x\right)$ is very important in proofs. \\[12pt]
+  I do not include exercises about structural induction on strings because they all look similar and are not interesting. However, 
+  please do review the examples in slides and your homework, because usually there will be more than 1 problems
+  concerning this part in your midterm. 
+\end{frame}
+\begin{frame}
+\frametitle{Structural Induction on Strings}
+  I still provide some conceptual exercises as follows.
+  \begin{itemize}
+    \item How to define the function that reverses a string?
+    \item How to prove a string reversed twice is the same as the original string using your definitions?
+    \item How to define a \textit{palindrome} string?
+    \item How to prove the properties of palindrome strings (e.g. at most one character appears odd times) using your definitions? 
+    \item How to define a substring?
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Well-Ordering Principle}
+  WOP is stated as follows.
+  \begin{quotation}
+    Every non-empty subset of $\mathbb{N}$ has a least element.
+  \end{quotation}
+  It is useful sometimes when you are trying to proving the existence of something. Though I think it is 
+  not necessary for you to use it in most cases, you should still at least know it. 
+\end{frame}
+\begin{frame}
+  \frametitle{Exercise}
+  Let us come to our final exercise in this RC. I believe this problem interests you. \\
+  \textbf{Ex. 5} (Gallier 1.45) A set $A$ is said to be \textit{transitive} if for all $a\in A$, 
+  \begin{equation*}
+      a\in A \Rightarrow a\subseteq A
+  \end{equation*}
+  \begin{itemize}
+      \item[(a)] Show that a set $A$ is transitive if and only if
+      \begin{equation*}
+          \bigcup A \subseteq A
+      \end{equation*}
+      \item[(b)](von Neumann successor) We define
+      \begin{equation*}
+          A^+ = A\cup \{A\}
+      \end{equation*}
+      Prove that if $A$ is a transitive set, then
+      \begin{equation*}
+          \bigcup \left(A^+\right) = A
+      \end{equation*}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{itemize}
+      \item[(c)] Recall that the set of natural numbers can be recursively defined as
+      \begin{align*}
+          &\mbox{(i) }\ 0 := \varnothing \in \mathbb{N}, \\
+          &\mbox{(ii) For any } n \in \mathbb{N}, n^+ := n\cup \{n\} \in \mathbb{N}.
+      \end{align*}
+      Prove that every natural number is a transitive set.
+      \item[(d)] Show that for two natural numbers $m$ and $n$, if $m^+ = n^+$, then $m = n$.
+      \item[(e)] Show that $\mathbb{N}$, the set of all natural numbers, is a transitive set. 
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Solution}
+\end{frame}
+\section{Homework}
+\begin{frame}
+  \frametitle{Homework}
+  This part will be updated after I have finished grading the homework.
+\end{frame}
+\section{Appendix: Solution to Problem Set}
+\begin{frame}
+  \frametitle{Ex. 1}
+  Try on \url{ https://www.umsu.de/trees/} yourself
+\end{frame}
+\begin{frame}
+  \frametitle{Ex. 2}
+  See slides pp. 82-84. 
+\end{frame}
+\begin{frame}
+  \frametitle{Ex. 3}
+  $P(k)$: Both sides are equivalent for $n=k$.
+  Inductive step: We have
+  \begin{align*}
+    a_1 \land a_2 \cdots \land a_k \land a_{k+1} \rightarrow b&= a_1 \land \left(a_2 \cdots \land a_k \land a_{k+1}\right) \rightarrow b \\
+    &=a_1\rightarrow \left(\left(a_2 \cdots \land a_k \land a_{k+1}\right) \rightarrow b\right) \\
+    &=a_1 \rightarrow \left(a_2 \rightarrow \cdots \rightarrow \left(a_{k+1} \rightarrow b\right)\right)
+  \end{align*}
+  where we applied our IH in the last step.
+\end{frame}
+\begin{frame}
+  \frametitle{Ex. 4}
+  You need to prove the following properties of xor.
+  \begin{itemize}
+    \item Commutativity: $a\oplus b = b\oplus a$. 
+    \item Associativity: $\left(a\oplus b\right)\oplus c = a\oplus \left(b\oplus c\right)$. 
+    \item Identity Element: $a\oplus 0 = a$.
+    \item Inverse Element: $a\oplus a = 0$.
+  \end{itemize}
+  You may view xor as the function 
+  \begin{equation*}
+    \oplus: \mathbb{B}\times \mathbb{B} \to \mathbb{B}, \ \left(x, y\right)\mapsto \left(x + y\right)\mod 2
+  \end{equation*}
+  and these properties are trivially true.
+\end{frame}
+\begin{frame}
+  \frametitle{Ex. 5}
+  \begin{itemize}
+    \item[(a)] ($\Rightarrow$) Suppose $x\in\bigcup A$, there exists $a\in A$ such that $x\in a$. Since $A$ is transitive, $a\in A$ implies
+    $a\subseteq A$. $x\in a \land a\subseteq A \Rightarrow x\in A$. Hence $\bigcup A \subseteq A$.\\
+    ($\Leftarrow$) Suppose $a\in A$. For any $x\in a$, $x\in \bigcup A$. Since $\bigcup A\subseteq A$, $x\in A$. Then $a\subseteq A$.
+    \item[(b)] Suppose $A$ is transitive, by (a) we have $\bigcup A \subseteq A$.
+    \begin{equation*}
+      \bigcup \left(A^+\right) = \bigcup \left(A\cup \{A\}\right) = \left(\bigcup A\right) \cup A = A
+    \end{equation*}
+    \item[(c)] Proof by Induction. \\
+    \textbf{Base Case}: $\varnothing $ is transitive because $\bigcup \varnothing = \varnothing \subseteq \varnothing$ is vacuously true. \\
+    \textbf{Inductive Case}: Say $n = m^+ = m \cup \{m\}$. By IH, $m$ is transitive. We want to show $n$ is also transitive. \\
+    For any $x\in n = m \cup \{m\}$, either
+    \begin{itemize}
+      \item $x\in m$. By transitivity of $m$, $x\subseteq m$. Hence $x\subseteq m \cup \{m\}$.
+      \item $x = m$. Then trivially $m\subseteq m \cup \{m\}$.
+    \end{itemize}
+    We can now conclude that $x\subseteq n$, and it follows that $n$ is also transitive.
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Ex. 5}
+  \begin{itemize}
+    \item[(d)] Suppose $m\cup \{m\} = n\cup \{n\}$. Suppose for contradiction that $m\neq n$. Then, $m\in n$ and $n\in m$. In (c) we have 
+    showed that all natural numbers are transitive, so $m\subseteq n$ and $n\subseteq m$. Hence $m = n$.
+    \item[(e)] It is equivalent to show for all $x\in \mathbb{N}$, $x\subseteq \mathbb{N}$. Again, we prove it by induction. \\
+    \textbf{Base Case}: $\varnothing \subseteq \mathbb{N}$ is vacuously true. \\
+    \textbf{Inductive Case}: Say $n = m^+ = m\cup \{m\}$. By IH, $m\subseteq \mathbb{N}$. We want to show $n\subseteq \mathbb{N}$. \\
+    For any $x\in n = m\cup \{m\}$, either
+    \begin{itemize}
+      \item $x\in m$. $m\subseteq \mathbb{N}$ implies $x\in \mathbb{N}$. 
+      \item $x = m$. $x\in\mathbb{N}$ since $m\in \mathbb{N}$.
+    \end{itemize}
+    We can now conclude that $x\in \mathbb{N}$, and it follows that $n\subseteq \mathbb{N}$.
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Ex. 6}
+  We claim that for $n$ layers, our score is $\frac{n\left(n-1\right)}{2}$ despite the strategy. Proof by strong induction. \\
+  \textbf{Base Case}: For $n=1$, the score is 0. \\
+  \textbf{Inductive Case}: By IH, the score for $x$ layers ($x\leq n$) is $\frac{x\left(x-1\right)}{2}$. 
+  For $n + 1$ layers, we may split them into two sub-stacks containing $k$ and $n + 1 - k$ layers respectively. Then, 
+  our final total score will be
+  \begin{equation*}
+    \frac{k\left(k-1\right)}{2} + \frac{\left(n+1-k\right)\left(n-k\right)}{2} + k\left(n+1-k\right) = \frac{n\left(n+1\right)}{2}
+  \end{equation*}
+  So IH holds for $n + 1$ layers also. We can conclude that it holds for all $n\in\mathbb{N}$. 
+\end{frame}
+% insert a reference frame before the 'thank you' frame ----------------------
+\begin{frame}
+  \frametitle{References}
+  
+  \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+    \bibitem[1]{gallier} Jean Gallier. Discrete Mathematics. Dordrecht; Heidelberg, Springer, 2011. ISBN: 978-1-4419-8046-5 
+    \bibitem[2]{wanling} Wanling Qu, Suyun Geng, Liang Zhang. Discrete Mathematics. Tsinghua University, 2013. ISBN: 978-7-302-33989-2
+    \bibitem[3]{mitCourseNotes} Thomson Leighton, Albert R Meyer. Mathematics for Computer Science Course Notes. MIT OpenCourseWare, 2010.
+    \bibitem[4]{slides} Prof. Cai. MATH203 Slides.
+  \end{thebibliography}
+\end{frame}
+
+\begin{frame}
+  \Huge{\centerline{Thank you!}}
+\end{frame}
+
+
+\end{document}
